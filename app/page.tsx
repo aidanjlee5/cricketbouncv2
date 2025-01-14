@@ -5,8 +5,7 @@ export default function Home() {
     <main className="flex flex-col min-w-full">
       <header>The Header</header>
       <div className="flex flex-row">
-        <Image src="/logo.jpg" alt="Cricket logo" width={200} height={1200} />
-        <img src="/logo.jpg"></img>
+        <Image src="/logo.png" alt="Cricket logo" width={200} height={200} />
         <p>About</p>
         {/* Dropdown */}
         <p>Council</p>
