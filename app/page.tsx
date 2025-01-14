@@ -1,5 +1,13 @@
 import Image from "next/image";
 import { getLayoutOrPageModule } from "next/dist/server/lib/app-dir-module";
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuLabel,
+  DropdownMenuSeparator,
+  DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu"
 export default function Home() {
   return (
     <main className="flex flex-col min-w-full">
