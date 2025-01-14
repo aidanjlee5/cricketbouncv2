@@ -3,9 +3,10 @@ import { getLayoutOrPageModule } from "next/dist/server/lib/app-dir-module";
 export default function Home() {
   return (
     <main className="flex flex-col min-w-full">
-      <header>The Header</header>
+      <div className = "header">
+      <Image src="/logo.png" alt="Cricket logo" width={50} height={50} />
+      </div>
       <div className="flex flex-row">
-        <Image src="/logo.png" alt="Cricket logo" width={200} height={200} />
         <p>About</p>
         {/* Dropdown */}
         <p>Council</p>
