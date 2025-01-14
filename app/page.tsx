@@ -21,6 +21,7 @@ export default function Home() {
           <Image className = "object-contain w-80% h-80% brighness-50"src="/background.jpg" alt="Cricket logo" width={2201} height={1353}/>
           <a href="https://heellife.unc.edu/organization/bounc"><Image className = "absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 aspect-auto w-50% h-50% hover:scale-110 hover:"src="/heellife.png" alt="Cricket logo" width={2201} height={1353} /></a>
         </div>
+        
         <div className ="w-2/5 h-2/5">Learn Cricket</div>
         <div className ="w-1/2 h-1/2">About</div>
       </div>
