@@ -10,20 +10,35 @@ import {
 } from "@/components/ui/dropdown-menu"
 export default function Home() {
   return (
-    <main className="flex flex-col min-w-full">
-      <div className = "header">
+    <main className="flex flex-col min-w-full w-screen">
+      <div className = "header sticky top-0 flex flex-row bg-amber-600 p-2 z-10">
       <Image src="/logo.png" alt="Cricket logo" width={50} height={50} />
+      <a>Home</a>
+      <a>About</a>
+      <a>Resources</a>
+      <a>Socials</a>
       </div>
 
-      <div className = "flex flex-row flex-wrap justify-center gap-10">
+      <div className = "flex flex-row flex-wrap justify-center gap-10 w-screen">
         {/*Heel Life Div*/}
-        <div className = "relative w-2/5 h-2/5 bg-divprimary p-5 rounded-lg">
-          <Image className = "object-contain w-80% h-80% brighness-50"src="/background.jpg" alt="Cricket logo" width={2201} height={1353}/>
-          <a href="https://heellife.unc.edu/organization/bounc"><Image className = "absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 aspect-auto w-50% h-50% hover:scale-110 hover:"src="/heellife.png" alt="Cricket logo" width={2201} height={1353} /></a>
+        <div className = "relative max-w-[500px] w-[90vh] bg-divprimary p-2 rounded-lg place-content-center">
+          <Image className = "h-full items-center"src="/background.jpg" alt="Cricket logo" width={1001} height={1353}/>
+          <a href="https://heellife.unc.edu/organization/bounc">
+            <Image className = "absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 aspect-auto w-50% h-50% hover:scale-105"src="/heellife.png" alt="Cricket logo" width={2201} height={1353} />
+          </a>    
         </div>
-        
-        <div className ="w-2/5 h-2/5">Learn Cricket</div>
-        <div className ="w-1/2 h-1/2">About</div>
+
+         {/*Learn Cricket Div*/}
+        <div className = "relative max-w-[500px] w-[100vh] bg-divprimary p-2 rounded-lg place-content-center">
+          <Image className = "h-full items-center"src="/cricketbackground.webp" alt="Cricket logo" width={2201} height={1353}/>
+          <p className = "absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 aspect-auto w-50% h-50% hover:scale-105 text-[3.5vw] text-nowrap font-bold">Learn About Cricket</p>
+        </div>
+
+        <div className = "relative max-w-[500px] w-[100vh] bg-divprimary p-2 rounded-lg place-content-center">
+          <Image className = "h-full  "src="/cricketbackground.webp" alt="Cricket logo" width={2201} height={1353}/>
+          <p className = "absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 aspect-auto w-50% h-50% hover:scale-105 text-[3.5vw] text-nowrap font-bold">About Us</p>
+        </div>
+
       </div>
 
       <div className="flex flex-row">
