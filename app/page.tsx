@@ -10,14 +10,18 @@ import {
 } from "@/components/ui/dropdown-menu"
 export default function Home() {
   return (
-    <main className="flex flex-col min-w-full w-screen">
-      <div className = "header sticky top-0 flex flex-row bg-amber-600 p-2 z-10">
+    <main className="flex flex-col min-w-full w-screen justify-center">
+      <div className = "flex flex-row justify-between items-center header sticky top-0 flex flex-row bg-amber-600 p-2 z-10">
       <Image src="/logo.png" alt="Cricket logo" width={50} height={50} />
+
+      {/* links */}
+      <div className ="flex gap-4">
       <a>Home</a>
       <a>About</a>
       <a>Resources</a>
       <a>Socials</a>
       </div>
+     </div>
 
       <div className = "flex flex-row flex-wrap justify-center gap-10 w-screen">
         {/*Heel Life Div*/}
