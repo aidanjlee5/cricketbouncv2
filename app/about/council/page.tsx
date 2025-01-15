@@ -1,11 +1,11 @@
 import React from 'react';
 import Image from 'next/image';
-// import Footer from '../components/Footer';
+// import Footer from '../components/ui/Footer';
 const ishan_bio = "/council_bio/ij.webp";
 const salman_bio = "/council_bio/sk.webp";
 const rishi_bio = "/council_bio/rs.webp";
 
-export default function Home() {
+export default function Council() {
     return (
         <div className = "flex w-screen h-screen">
             <div className = "flex flex-col w-full justify-center items-center">
