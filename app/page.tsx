@@ -10,19 +10,25 @@ import {
 } from "@/components/ui/dropdown-menu"
 export default function Home() {
   return (
-    <main className="flex flex-col min-w-full">
+    <main className="flex flex-col min-w-full w-screen">
       <div className = "header">
       <Image src="/logo.png" alt="Cricket logo" width={50} height={50} />
       </div>
 
-      <div className = "flex flex-row flex-wrap justify-center gap-10">
+      <div className = "flex flex-row flex-wrap justify-center gap-10 w-screen">
         {/*Heel Life Div*/}
-        <div className = "relative w-2/5 h-2/5 bg-divprimary p-5 rounded-lg">
-          <Image className = "object-contain w-80% h-80% brighness-50"src="/background.jpg" alt="Cricket logo" width={2201} height={1353}/>
-          <a href="https://heellife.unc.edu/organization/bounc"><Image className = "absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 aspect-auto w-50% h-50% hover:scale-110 hover:"src="/heellife.png" alt="Cricket logo" width={2201} height={1353} /></a>
+        <div className = "relative w-2/5 bg-divprimary p-2 rounded-lg place-content-center">
+          <Image className = "object-contain w-80% h-80% brighness-50 items-center"src="/background.jpg" alt="Cricket logo" width={2201} height={1353}/>
+          <a href="https://heellife.unc.edu/organization/bounc">
+            <Image className = "absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 aspect-auto w-50% h-50% hover:scale-105 hover:"src="/heellife.png" alt="Cricket logo" width={2201} height={1353} />
+          </a>    
         </div>
-        
-        <div className ="w-2/5 h-2/5">Learn Cricket</div>
+
+         {/*Learn Cricket Div*/}
+        <div className = "relative w-2/5 bg-divprimary p-2 rounded-lg">
+        <Image className = "object-contain w-80% h-80% brighness-50"src="/cricketbackground.webp" alt="Cricket logo" width={2201} height={1353}/>
+        </div>
+
         <div className ="w-1/2 h-1/2">About</div>
       </div>
 
