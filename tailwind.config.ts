@@ -11,8 +11,9 @@ export default {
   	extend: {
   		colors: {
 			// Custom colors
-			'divprimary': '#D8315B',	
-
+			'divtertiary': '#1D1616',	
+			'divprimary': '#E8F9FF',
+			'divsecondary': '#C4D9FF',
   			background: 'hsl(var(--background))',
   			foreground: 'hsl(var(--foreground))',
   			card: {
