@@ -18,6 +18,8 @@ export default {
 			'divtertiary': '#1D1616',	
 			'divprimary': '#E8F9FF',
 			'divsecondary': '#C4D9FF',
+			'footer-bg': '#515151',
+			
   			background: 'hsl(var(--background))',
   			foreground: 'hsl(var(--foreground))',
   			card: {
