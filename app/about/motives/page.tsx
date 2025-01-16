@@ -1,4 +1,4 @@
-
+import Footer from '@/components/ui/footer';
 
 function Motives() {
     return (
@@ -13,7 +13,7 @@ function Motives() {
                 </div>
             
             </div>
-      {/* <Footer/> */}
+      <Footer/>
     </main>
     );
 }
