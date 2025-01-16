@@ -34,7 +34,7 @@ export default function Home() {
 
       <div className = "flex flex-row flex-wrap justify-center gap-10 w-screen p-1 min-h-[90vh] bg-gradient-to-r from-cyan-500 to-blue-500">
         {/*Heel Life Div*/}
-        <div className = "relative max-w-[500px] w-[90vh] bg-divtertiary p-1 rounded-lg place-content-center">
+        <div className = "relative max-w-[600px] w-[90vh] bg-divtertiary p-1 rounded-lg place-content-center">
           <Image className = "h-full items-center"src="/background.jpg" alt="Cricket logo" width={1001} height={1353}/>
           <a href="https://heellife.unc.edu/organization/bounc">
             <Image className = "absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 aspect-auto w-50% h-50% hover:scale-105"src="/heellife.png" alt="Cricket logo" width={2201} height={1353} />
@@ -42,14 +42,22 @@ export default function Home() {
         </div>
 
          {/*Learn Cricket Div*/}
-        <div className = "relative max-w-[500px] w-[100vh] bg-divtertiary p-1 rounded-lg place-content-center ">
+        <div className = "relative max-w-[600px] w-[100vh] bg-divtertiary p-1 rounded-lg place-content-center ">
           <Image className = "h-full items-center"src="/cricketbackground.webp" alt="Cricket logo" width={2201} height={1353}/>
           <p className = "absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 aspect-auto w-50% h-50% hover:scale-105 text-[3.5vw] text-nowrap font-bold">Learn About Cricket</p>
         </div>
 
-        <div className = "relative max-w-[500px] w-[100vh] bg-divtertiary p-1 rounded-lg place-content-center">
-          <Image className = "h-full  "src="/cricketbackground.webp" alt="Cricket logo" width={2201} height={1353}/>
+        <div className = "relative max-w-[600px] w-[100vw] h-fit block bg-divtertiary p-1 rounded-lg place-content-center">
+          <Image className = "h-full"src="/cricketbackground.webp" alt="Cricket logo" width={2201} height={1353}/>
           <p className = "absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 aspect-auto w-50% h-50% hover:scale-105 text-[3.5vw] text-nowrap font-bold">About Us</p>
+        </div>
+
+        <div className = "relative max-w-[400px] w-[100vh]  max-h[1/2] min-h-[400px] bg-divtertiary p-1 rounded-lg place-content-center">
+          <Image className = "absolute h-1/3 w-1/3 top-0 left-0"src="/teams/6ixerJ0rdans.png" alt="The Teams" width={2201} height={1353}/>
+          <Image className = "absolute h-1/3 w-1/3 bottom-0 right-0"src="/teams/TarHeelTrojans.png" alt="The Teams" width={2201} height={1353}/>
+          <Image className = "absolute h-1/3 w-1/3 bottom-0 left-0"src="/teams/BlazingRamses.png" alt="The Teams" width={2201} height={1353}/>
+          <Image className = "absolute h-1/3 w-1/3 top-0 right-0"src="/teams/NobleFranklinRiders.webp" alt="The Teams" width={2201} height={1353}/>
+          <Image className = "absolute w-1/3 left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2"src="/teams/BCLTrophy.png" alt="The Teams" width={2201} height={1353}/>
         </div>
 
       </div>
