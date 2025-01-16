@@ -1,6 +1,6 @@
 import React from 'react';
 import Image from 'next/image';
-// import Footer from '../components/ui/Footer';
+import Footer from '@/components/ui/footer';
 const ishan_bio = "/council_bio/ij.webp";
 const salman_bio = "/council_bio/sk.webp";
 const rishi_bio = "/council_bio/rs.webp";
@@ -21,7 +21,7 @@ export default function Council() {
                     <p>And you too! There is no BOUNC without our players and members.</p>
                     <p>Thank you for being here!</p>
             
-                    {/* <Footer /> Add the Footer component here */}
+                    <Footer />
             </div>
         </div>
     );
