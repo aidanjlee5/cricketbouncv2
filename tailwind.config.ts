@@ -11,7 +11,8 @@ export default {
   	extend: {
   		colors: {
 			// Custom colors
-			'divprimary': '#D8315B',	
+			'divprimary': '#D8315B',
+			'footer': '#515151',	
 
   			background: 'hsl(var(--background))',
   			foreground: 'hsl(var(--foreground))',
