@@ -1,4 +1,4 @@
-
+import Footer from '@/components/ui/Footer';
 
 function Motives() {
     return (

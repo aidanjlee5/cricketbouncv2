@@ -12,11 +12,8 @@ export default {
   		colors: {
 			// Custom colors
 			'divprimary': '#D8315B',
-<<<<<<< Updated upstream
-			'footer': '#515151',	
+			'footer-bg': '#515151',
 
-=======
->>>>>>> Stashed changes
   			background: 'hsl(var(--background))',
   			foreground: 'hsl(var(--foreground))',
   			card: {
