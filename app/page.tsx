@@ -25,7 +25,7 @@ export default function Home() {
 
       {/* links */}
       <div className ="flex gap-4">
-      <a>Home</a>
+      <a className ="font-cricketfont">Home</a>
       <a>About</a>
       <a>Resources</a>
       <a>Socials</a>

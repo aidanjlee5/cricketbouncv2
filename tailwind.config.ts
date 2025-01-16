@@ -9,6 +9,10 @@ export default {
   ],
   theme: {
   	extend: {
+		fontFamily: {
+			customFont: ['"cricketfont"', "sans-serif"],
+			// Add more custom font families as needed
+		},
   		colors: {
 			// Custom colors
 			'divtertiary': '#1D1616',	
