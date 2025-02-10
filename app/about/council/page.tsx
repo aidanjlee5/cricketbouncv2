@@ -1,12 +1,15 @@
 import React from 'react';
 import Image from 'next/image';
 import Footer from '@/components/ui/footer';
+import Header from '@/components/ui/header';
 const ishan_bio = "/council_bio/ij.webp";
 const salman_bio = "/council_bio/sk.webp";
 const rishi_bio = "/council_bio/rs.webp";
 
 export default function Council() {
     return (
+        <>
+        <Header/>
         <div className = "flex w-screen">
             <div className = "flex flex-col w-full justify-center items-center">
                     <h2>The Council</h2>
@@ -24,5 +27,6 @@ export default function Council() {
                     <Footer />
             </div>
         </div>
+        </>
     );
 }
