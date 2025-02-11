@@ -1,5 +1,4 @@
 import Image from "next/image";
-import { getLayoutOrPageModule } from "next/dist/server/lib/app-dir-module";
 
 export default function Header(){
   return (

@@ -5,7 +5,7 @@ import Image from 'next/image';
 
 const Footer = () => {
   return (
-    <footer className="bg-footer-bg text-white py-2.5 text-center w-full shrink-0 mt-12">
+    <footer className="bg-footer-bg text-white py-2.5 mt-0 text-center w-full shrink-0 mt-12">
       <div className="flex justify-between items-center flex-wrap max-w-screen-xl mx-auto px-5">
         <div className="flex flex-col items-start flex-grow text-lg pl-2.5">
           <Link href="/burger-menu/contact">Contact Us</Link>

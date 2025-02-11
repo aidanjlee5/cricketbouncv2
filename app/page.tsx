@@ -14,7 +14,7 @@ export default function Home() {
   return (
     <main className="flex flex-col min-w-full w-screen justify-center bg-divprimary">
       <Header/>
-      <div className = "flex flex-col items-center justify-center gap-10 w-screen p-1 min-h-[90vh] bg-gradient-to-r from-cyan-500 to-blue-500">
+      <div className = "flex flex-col items-center justify-center gap-10 w-screen p-1 min-h-[90vh] bg-black">
         {/*Heel Life Div*/}
         <div className = "relative bg-divtertiary p-1 rounded-lg place-content-center">
           <Image className = "h-full items-center"src="/background.jpg" alt="Cricket logo" width={1001} height={1353}/>
