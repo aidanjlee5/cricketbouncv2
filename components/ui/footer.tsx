@@ -1,19 +1,20 @@
+"use client";
+
 import React from 'react';
-import Link from 'next/link'
-import logo from './stamp2.png';  // Ensure the path is correct
+import Link from 'next/link';
 import Image from 'next/image';
 
-const Footer = () => {
+const Footer: React.FC = () => {
   return (
-    <footer className="bg-footer-bg text-white py-2.5 text-center w-full shrink-0 mt-12">
+    <footer className="bg-footer-bg text-white py-2.5 text-center w-full shrink-0 mt-12 min-h-[60px]">
       <div className="flex justify-between items-center flex-wrap max-w-screen-xl mx-auto px-5">
         <div className="flex flex-col items-start flex-grow text-lg pl-2.5">
           <Link href="/burger-menu/contact">Contact Us</Link>
           <Link href="/burger-menu/faq">FAQ</Link>
           <Link href="/burger-menu/socials">Socials</Link>
-          <Link href="/burger-menu/supportbounct">Support BOUNC</Link>
+          <Link href="/burger-menu/supportbounc">Support BOUNC</Link>
         </div>
-        <div className="flex flex-col items-center justify-center flex-grow-2 text-center p-0">
+        <div className="flex flex-col items-center justify-center flex-grow text-center p-0">
           <Link href="/" className="footer-logo">cricketbounc.com</Link>
           <Image src="/logo.png" alt="Designed by Ishan Joshi" className="footer-img" width={50} height={50} />
         </div>
@@ -27,4 +28,3 @@ const Footer = () => {
 };
 
 export default Footer;
-
