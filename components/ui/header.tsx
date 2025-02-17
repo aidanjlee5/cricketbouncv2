@@ -1,24 +1,154 @@
-import Image from "next/image";
+"use client";
 
-export default function Header(){
+import React, { useState, useRef, useEffect } from "react";
+import Link from "next/link";
+
+const logo = "/logo.png";
+
+const Header: React.FC = () => {
+  const [isDropdownOpen, setDropdownOpen] = useState(false);
+  const dropdownRef = useRef<HTMLDivElement>(null);
+
+  // Close dropdown when clicking outside
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (dropdownRef.current && !dropdownRef.current.contains(event.target as Node)) {
+        setDropdownOpen(false);
+      }
+    };
+
+    document.addEventListener("mousedown", handleClickOutside);
+    return () =>
+      document.removeEventListener("mousedown", handleClickOutside);
+  }, []);
+
   return (
-    <div className = "flex flex-row justify-between items-center header sticky top-0 flex flex-row bg-amber-400 p-2 z-10">
-      <div className="flex flex-row items-center gap-2 basis-1 grow">
-        <a href="https://www.facebook.com/profile.php?id=61564215452432"><Image className = "w-10 hover:scale-105" src="/icons/icons8-facebook.svg" width={50} height={50} alt="facebook icon"/></a>
-        <a href="https://www.instagram.com/cricketbounc/"><Image className = "w-8 hover:scale-105" src="/icons/icons8-instagram.svg" width={50} height={50} alt="facebook icon"/></a>
-        <a href="https://www.youtube.com/channel/UCY_pRAyhPu98hcduzQl6fqw"><Image className = "w-10 hover:scale-105" src="/icons/icons8-youtube.svg" width={50} height={50} alt="facebook icon"/></a>
-        <a href="https://www.tiktok.com/@BOUNCE_UNCCH"><Image className = "w-8 hover:scale-105" src="/icons/tiktok-svgrepo-com.svg" width={50} height={50} alt="facebook icon"/></a>
-        <a href="https://x.com/CricketBOUNC"><Image className = "w-8 hover:scale-105" src="/icons/x-social-media-black-icon.svg" width={50} height={50} alt="facebook icon"/></a>
-      </div>
+    <header className="sticky top-0 z-10 bg-orange-500 p-4">
+      <div className="flex flex-row justify-between items-center">
+        {/* Logo and Title */}
+        <div className="flex flex-row items-center gap-2">
+          <img src={logo} alt="BOUNC Logo" className="h-10 mr-4" />
+          <h1 className="text-xl font-bold">
+            BOUNC® Bowlers &amp; Batters at UNC-Chapel Hill
+          </h1>
+        </div>
 
-      <Image src="/logo.png" alt="Cricket logo" width={50} height={50} />
+        {/* Navigation */}
+        <nav className="flex gap-4 items-center">
+          <Link href="/" className="hover:text-gray-200">
+            Home
+          </Link>
+          <div className="relative group">
+            <Link href="/about" className="hover:text-gray-200">
+              About
+            </Link>
+            <div className="absolute left-0 mt-1 w-40 bg-orange-600 rounded shadow-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+              <Link
+                href="/about/council"
+                className="block px-4 py-2 hover:bg-orange-700"
+              >
+                The Council
+              </Link>
+              <Link
+                href="/about/motives"
+                className="block px-4 py-2 hover:bg-orange-700"
+              >
+                Motives
+              </Link>
+              <Link
+                href="/about/constitution"
+                className="block px-4 py-2 hover:bg-orange-700"
+              >
+                Constitution
+              </Link>
+            </div>
+          </div>
+          <Link href="/bcl" className="hover:text-gray-200">
+            BCL
+          </Link>
+          <Link href="/videos" className="hover:text-gray-200">
+            Videos
+          </Link>
 
-      {/* links */}
-      <div className ="flex gap-4 basis-1 grow justify-end">
-      <a href="/" className ="font-cricketfont">Home</a>
-      <a href="./about/council">About</a>
-      <a>Resources</a>
-      <a>Socials</a>
+          {/* Burger Menu Dropdown */}
+          <div ref={dropdownRef} className="relative inline-block">
+            <button
+              onClick={() => setDropdownOpen(!isDropdownOpen)}
+              className="text-2xl hover:text-gray-200 focus:outline-none"
+            >
+              ☰
+            </button>
+            {isDropdownOpen && (
+              <div className="absolute right-0 mt-2 w-48 bg-orange-600 rounded shadow-md transition-opacity duration-300 z-50">
+                <ul>
+                  <li>
+                    <Link href="/burger-menu/rules">
+                      <span
+                        className="block px-4 py-2 hover:bg-orange-700"
+                        onClick={() => setDropdownOpen(false)}
+                      >
+                        Cricket Rules
+                      </span>
+                    </Link>
+                  </li>
+                  <li>
+                    <Link href="/burger-menu/gallery">
+                      <span
+                        className="block px-4 py-2 hover:bg-orange-700"
+                        onClick={() => setDropdownOpen(false)}
+                      >
+                        Gallery
+                      </span>
+                    </Link>
+                  </li>
+                  <li>
+                    <Link href="/burger-menu/socials">
+                      <span
+                        className="block px-4 py-2 hover:bg-orange-700"
+                        onClick={() => setDropdownOpen(false)}
+                      >
+                        Socials
+                      </span>
+                    </Link>
+                  </li>
+                  <li>
+                    <Link href="/burger-menu/faq">
+                      <span
+                        className="block px-4 py-2 hover:bg-orange-700"
+                        onClick={() => setDropdownOpen(false)}
+                      >
+                        FAQ
+                      </span>
+                    </Link>
+                  </li>
+                  <li>
+                    <Link href="/burger-menu/contact">
+                      <span
+                        className="block px-4 py-2 hover:bg-orange-700"
+                        onClick={() => setDropdownOpen(false)}
+                      >
+                        Contact Us
+                      </span>
+                    </Link>
+                  </li>
+                  <li>
+                    <Link href="/burger-menu/supportbounc">
+                      <span
+                        className="block px-4 py-2 hover:bg-orange-700"
+                        onClick={() => setDropdownOpen(false)}
+                      >
+                        Support BOUNC
+                      </span>
+                    </Link>
+                  </li>
+                </ul>
+              </div>
+            )}
+          </div>
+        </nav>
       </div>
-     </div>)
-}
+    </header>
+  );
+};
+
+export default Header;
