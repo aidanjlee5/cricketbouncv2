@@ -1,90 +1,152 @@
 "use client";
 
 import React, { useState, useRef, useEffect } from "react";
+import Image from "next/image";
 import Link from "next/link";
+import { supabase } from "@/lib/supabaseClient";
 
-const logo = "/logo.png";
-
-const Header: React.FC = () => {
+export default function Header() {
   const [isDropdownOpen, setDropdownOpen] = useState(false);
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
   const dropdownRef = useRef<HTMLDivElement>(null);
 
-  // Close dropdown when clicking outside
   useEffect(() => {
-    const handleClickOutside = (event: MouseEvent) => {
-      if (dropdownRef.current && !dropdownRef.current.contains(event.target as Node)) {
-        setDropdownOpen(false);
+    const checkSession = async () => {
+      const { data, error } = await supabase.auth.getSession();
+      if (data.session) {
+        setIsLoggedIn(true);
+      } else {
+        setIsLoggedIn(false);
       }
     };
 
-    document.addEventListener("mousedown", handleClickOutside);
-    return () =>
-      document.removeEventListener("mousedown", handleClickOutside);
+    checkSession();
+
+    const { data: authListener } = supabase.auth.onAuthStateChange((event, session) => {
+      setIsLoggedIn(!!session);
+    });
+
+    return () => {
+      authListener.subscription.unsubscribe();
+    };
   }, []);
 
+  const handleLogout = async () => {
+    const { error } = await supabase.auth.signOut();
+    if (error) {
+      console.error("Logout error:", error.message);
+    } else {
+      setIsLoggedIn(false);
+    }
+  };
+
   return (
-    <header className="sticky top-0 z-10 bg-orange-500 p-4">
+    <header className="sticky top-0 z-10 bg-amber-400 p-2">
       <div className="flex flex-row justify-between items-center">
-        {/* Logo and Title */}
-        <div className="flex flex-row items-center gap-2">
-          <img src={logo} alt="BOUNC Logo" className="h-10 mr-4" />
-          <h1 className="text-xl font-bold">
-            BOUNC® Bowlers &amp; Batters at UNC-Chapel Hill
-          </h1>
+        <div className="flex flex-row items-center gap-2 basis-1 grow">
+        {isLoggedIn ? (
+            <button
+              onClick={handleLogout}
+              className="px-2 py-1 text-sm bg-red-500 text-white rounded hover:bg-red-600"
+            >
+              Logout
+            </button>
+          ) : (
+            <Link href="/login">
+              <button className="px-2 py-1 text-sm bg-green-500 text-white rounded hover:bg-green-600">
+                Sign In
+              </button>
+            </Link>
+          )}
+
+          <a href="https://www.facebook.com/profile.php?id=61564215452432">
+            <Image
+              className="w-8 hover:scale-105"
+              src="/icons/icons8-facebook.svg"
+              width={40}
+              height={40}
+              alt="facebook icon"
+            />
+          </a>
+          <a href="https://www.instagram.com/cricketbounc/">
+            <Image
+              className="w-8 hover:scale-105"
+              src="/icons/icons8-instagram.svg"
+              width={40}
+              height={40}
+              alt="instagram icon"
+            />
+          </a>
+          <a href="https://www.youtube.com/channel/UCY_pRAyhPu98hcduzQl6fqw">
+            <Image
+              className="w-8 hover:scale-105"
+              src="/icons/icons8-youtube.svg"
+              width={40}
+              height={40}
+              alt="youtube icon"
+            />
+          </a>
+          <a href="https://www.tiktok.com/@BOUNCE_UNCCH">
+            <Image
+              className="w-8 hover:scale-105"
+              src="/icons/tiktok-svgrepo-com.svg"
+              width={40}
+              height={40}
+              alt="tiktok icon"
+            />
+          </a>
+          <a href="https://x.com/CricketBOUNC">
+            <Image
+              className="w-8 hover:scale-105"
+              src="/icons/x-social-media-black-icon.svg"
+              width={40}
+              height={40}
+              alt="x (twitter) icon"
+            />
+          </a>
+          
         </div>
 
-        {/* Navigation */}
-        <nav className="flex gap-4 items-center">
-          <Link href="/" className="hover:text-gray-200">
+        <div className="flex justify-center">
+          <Image
+            src="/logo.png"
+            alt="Cricket logo"
+            width={50}
+            height={50}
+            className="mr-2"
+          />
+        </div>
+
+        <nav className="flex flex-row items-center basis-1 grow justify-end gap-4">
+          <Link href="/" className="hover:text-white font-cricketfont">
             Home
           </Link>
-          <div className="relative group">
-            <Link href="/about" className="hover:text-gray-200">
-              About
-            </Link>
-            <div className="absolute left-0 mt-1 w-40 bg-orange-600 rounded shadow-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-              <Link
-                href="/about/council"
-                className="block px-4 py-2 hover:bg-orange-700"
-              >
-                The Council
-              </Link>
-              <Link
-                href="/about/motives"
-                className="block px-4 py-2 hover:bg-orange-700"
-              >
-                Motives
-              </Link>
-              <Link
-                href="/about/constitution"
-                className="block px-4 py-2 hover:bg-orange-700"
-              >
-                Constitution
-              </Link>
-            </div>
-          </div>
-          <Link href="/bcl" className="hover:text-gray-200">
-            BCL
+          <Link href="/about/council" className="hover:text-white">
+            About
           </Link>
-          <Link href="/videos" className="hover:text-gray-200">
-            Videos
+          <Link href="/resources" className="hover:text-white">
+            Resources
+          </Link>
+          <Link href="/socials" className="hover:text-white">
+            Socials
           </Link>
 
-          {/* Burger Menu Dropdown */}
+          
+
           <div ref={dropdownRef} className="relative inline-block">
             <button
               onClick={() => setDropdownOpen(!isDropdownOpen)}
-              className="text-2xl hover:text-gray-200 focus:outline-none"
+              className="text-2xl hover:text-white focus:outline-none"
             >
               ☰
             </button>
             {isDropdownOpen && (
-              <div className="absolute right-0 mt-2 w-48 bg-orange-600 rounded shadow-md transition-opacity duration-300 z-50">
+              <div className="absolute right-0 mt-2 w-48 bg-amber-500 rounded shadow-md transition-opacity duration-300 z-50">
                 <ul>
                   <li>
                     <Link href="/burger-menu/rules">
                       <span
-                        className="block px-4 py-2 hover:bg-orange-700"
+                        className="block px-4 py-2 hover:bg-amber-600"
                         onClick={() => setDropdownOpen(false)}
                       >
                         Cricket Rules
@@ -94,7 +156,7 @@ const Header: React.FC = () => {
                   <li>
                     <Link href="/burger-menu/gallery">
                       <span
-                        className="block px-4 py-2 hover:bg-orange-700"
+                        className="block px-4 py-2 hover:bg-amber-600"
                         onClick={() => setDropdownOpen(false)}
                       >
                         Gallery
@@ -104,7 +166,7 @@ const Header: React.FC = () => {
                   <li>
                     <Link href="/burger-menu/socials">
                       <span
-                        className="block px-4 py-2 hover:bg-orange-700"
+                        className="block px-4 py-2 hover:bg-amber-600"
                         onClick={() => setDropdownOpen(false)}
                       >
                         Socials
@@ -114,7 +176,7 @@ const Header: React.FC = () => {
                   <li>
                     <Link href="/burger-menu/faq">
                       <span
-                        className="block px-4 py-2 hover:bg-orange-700"
+                        className="block px-4 py-2 hover:bg-amber-600"
                         onClick={() => setDropdownOpen(false)}
                       >
                         FAQ
@@ -124,7 +186,7 @@ const Header: React.FC = () => {
                   <li>
                     <Link href="/burger-menu/contact">
                       <span
-                        className="block px-4 py-2 hover:bg-orange-700"
+                        className="block px-4 py-2 hover:bg-amber-600"
                         onClick={() => setDropdownOpen(false)}
                       >
                         Contact Us
@@ -134,7 +196,7 @@ const Header: React.FC = () => {
                   <li>
                     <Link href="/burger-menu/supportbounc">
                       <span
-                        className="block px-4 py-2 hover:bg-orange-700"
+                        className="block px-4 py-2 hover:bg-amber-600"
                         onClick={() => setDropdownOpen(false)}
                       >
                         Support BOUNC
@@ -149,6 +211,4 @@ const Header: React.FC = () => {
       </div>
     </header>
   );
-};
-
-export default Header;
+}
